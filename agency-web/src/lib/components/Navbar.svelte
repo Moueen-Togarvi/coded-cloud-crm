@@ -12,27 +12,26 @@
 
 <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass border-b border-gray-100">
 	<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="flex justify-between items-center h-20">
+		<div class="flex justify-between items-center h-20 md:h-24">
 			<!-- Logo -->
-			<a href="/" class="flex-shrink-0 flex items-center gap-3">
+			<a href="/" class="flex-shrink-0 flex items-center group">
 				<img 
 					src="/images/image-removebg-preview.png" 
 					alt="Coded Clouds Logo" 
-					class="w-12 h-12 object-contain"
+					class="w-16 h-16 md:w-20 md:h-20 object-contain hover:scale-110 transition-transform duration-300" 
 				/>
-				<span class="text-xl font-black tracking-tight text-gray-900">CODED CLOUDS</span>
 			</a>
 
 			<!-- Desktop Nav -->
 			<div class="hidden md:flex items-center space-x-10">
 				{#each navLinks as link}
-					<a href={link.href} class="text-xs font-bold text-gray-600 hover:text-blue-600 transition-all uppercase tracking-widest">{link.name}</a>
+					<a href={link.href} class="text-xs font-bold text-gray-600 hover:text-blue-600 transition-all uppercase tracking-widest hover:scale-105">{link.name}</a>
 				{/each}
 			</div>
 
 			<!-- CTA Button -->
 			<div class="hidden md:block">
-				<a href="/contact" class="btn-primary py-2.5 text-xs tracking-widest uppercase">
+				<a href="/contact" class="btn-primary py-3 px-8 text-xs tracking-widest uppercase hover:shadow-xl hover:scale-105 transition-all">
 					BOOK FREE CONSULTATION
 				</a>
 			</div>
@@ -83,4 +82,3 @@
 		@apply bg-blue-600 text-white rounded-xl font-bold shadow-lg hover:bg-blue-700 transition-all flex items-center justify-center;
 	}
 </style>
-

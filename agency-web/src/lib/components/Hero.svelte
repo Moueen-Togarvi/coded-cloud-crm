@@ -4,7 +4,7 @@
 
 	let visible = $state(false);
 	let typewriterIndex = $state(0);
-	const typewriterWords = ['LAUNCHING.', 'BUILDING.', 'INNOVATING.', 'SCALING.'];
+	const typewriterWords = ['YOUR FUTURE.', 'IDEAS.', 'A LEGACY.', 'THE UNKNOWN.'];
 	let currentWord = $state('');
 	let isDeleting = $state(false);
 	let typeSpeed = $state(150);
@@ -38,47 +38,58 @@
 	});
 </script>
 
-<section class="relative min-h-[70vh] pt-28 pb-12 flex flex-col items-center overflow-hidden bg-white">
+<section class="relative h-screen min-h-[600px] pt-48 pb-12 flex items-center overflow-hidden bg-white">
 	<!-- Background Subtle Blur -->
-	<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-blue-50/20 rounded-full blur-[100px] -z-10"></div>
+	<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/30 rounded-full blur-[100px] -z-10 translate-x-1/2 -translate-y-1/4"></div>
+	<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-50/20 rounded-full blur-[80px] -z-10 -translate-x-1/4 translate-y-1/4"></div>
 
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-		{#if visible}
-			<div in:fly={{ y: 20, duration: 800 }}>
-				<h1 class="text-5xl md:text-8xl font-black text-gray-900 tracking-tighter leading-[1] mb-6">
-					<span class="text-gray-400 block mb-2">STOP PLANNING.</span> 
-					<span class="text-gray-900">START <span class="text-blue-600 inline-block min-w-[280px] text-left">{currentWord}<span class="animate-pulse">|</span></span></span>
-				</h1>
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+			<!-- Text Content -->
+			<div class="text-left">
+				{#if visible}
+					<div in:fly={{ x: -20, duration: 800 }}>
+						<h2 class="text-blue-800 font-bold uppercase tracking-[0.3em] text-[10px] mb-4 flex items-center gap-3">
+							<span class="w-10 h-0.5 bg-blue-800"></span>
+							ESTABLISHED 2026
+						</h2>
+						<h1 class="text-5xl md:text-6xl xl:text-7xl font-black text-black tracking-tighter leading-[1.1] mb-8">
+							WE ARCHITECT <br />
+							<span class="text-black">{currentWord}<span class="animate-pulse">|</span></span>
+						</h1>
+					</div>
+
+					<div in:fade={{ duration: 1000, delay: 400 }}>
+						<p class="text-lg md:text-xl text-gray-500 max-w-lg font-medium tracking-tight leading-relaxed mb-10">
+							We architect premium software ecosystems that scale effortlessly across global markets. From Pakistan to the UAE, we build the elite digital future.
+						</p>
+					</div>
+
+					<div class="flex flex-col sm:flex-row items-center gap-4" in:fade={{ duration: 1000, delay: 600 }}>
+						<a href="/contact" class="btn-primary w-full sm:w-auto px-10 py-4 text-base shadow-2xl shadow-blue-200">
+							GET A QUOTE
+						</a>
+						<button class="btn-outline w-full sm:w-auto px-10 py-4 text-base">
+							OUR PORTFOLIO
+						</button>
+					</div>
+				{/if}
 			</div>
 
-			<div in:fade={{ duration: 1000, delay: 400 }}>
-				<p class="mt-4 text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto font-medium tracking-tight">
-					We build premium software solutions that go live fast and scale effortlessly across the globe.
-				</p>
+			<!-- Hero Image Column -->
+			<div class="relative hidden lg:block" in:fly={{ x: 30, duration: 1000, delay: 800 }}>
+				<div class="relative group">
+					<!-- Glow Effects -->
+					<div class="absolute inset-0 bg-blue-500/10 rounded-full scale-110 opacity-100 transition-opacity duration-1000"></div>
+					<div class="absolute -inset-2 bg-gradient-to-tr from-blue-600/5 to-transparent rounded-[2.5rem]"></div>
+					
+					<img 
+						src="/images/Whisk_bab681451ce2130a0da460fdae48800adr-removebg-preview.png" 
+						alt="Coded Clouds Premium Interface" 
+						class="relative w-full max-w-lg mx-auto h-auto object-contain transform hover:scale-[1.01] transition-all duration-1000 select-none pointer-events-none drop-shadow-[0_25px_50px_rgba(79,128,240,0.15)]"
+					/>
+				</div>
 			</div>
-
-			<div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6" in:fade={{ duration: 1000, delay: 600 }}>
-				<button class="btn-primary px-12 py-4 text-lg shadow-2xl shadow-blue-200">
-					GET A QUOTE
-				</button>
-				<button class="btn-outline px-12 py-4 text-lg">
-					OUR PORTFOLIO
-				</button>
-			</div>
-		{/if}
-	</div>
-
-	<!-- New Hero Image (Whisk Asset) at the Bottom -->
-	<div class="relative w-full max-w-5xl mx-auto mt-16 md:mt-24 px-4 flex justify-center" in:fly={{ y: 100, duration: 1000, delay: 800 }}>
-		<div class="relative group">
-			<!-- Subtle glow behind the main asset -->
-			<div class="absolute inset-0 bg-blue-400/10 blur-3xl rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-			
-			<img 
-				src="/images/Whisk_bab681451ce2130a0da460fdae48800adr-removebg-preview.png" 
-				alt="Coded Clouds Premium Interface" 
-				class="w-full h-auto object-contain transform hover:scale-[1.01] transition-all duration-700 select-none pointer-events-none drop-shadow-[0_20px_50px_rgba(79,128,240,0.15)]"
-			/>
 		</div>
 	</div>
 </section>
@@ -94,4 +105,3 @@
 		@apply border-2 border-gray-100 text-gray-900 rounded-2xl font-bold bg-white/50 backdrop-blur-sm shadow-sm hover:border-blue-600 hover:text-blue-600 hover:-translate-y-1 transition-all flex items-center justify-center;
 	}
 </style>
-

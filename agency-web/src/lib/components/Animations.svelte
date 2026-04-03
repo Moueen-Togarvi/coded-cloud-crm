@@ -9,7 +9,7 @@
 	});
 </script>
 
-<section id="animations" class="py-24 bg-white overflow-hidden relative">
+<section id="animations" class="py-16 bg-white overflow-hidden relative">
 	<!-- Animated Background Elements -->
 	<div class="absolute inset-0 overflow-hidden pointer-events-none">
 		<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-50/20 rounded-full blur-[100px] animate-pulse"></div>
@@ -22,8 +22,8 @@
 			<div class="flex-1 space-y-8">
 				{#if visible}
 					<div in:fly={{ x: -50, duration: 1000 }}>
-						<h2 class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4">Innovation Lab</h2>
-						<h3 class="text-4xl md:text-6xl font-black text-gray-900 leading-[1.1]">
+						<h2 class="text-blue-600 font-bold uppercase tracking-widest text-[10px] mb-3">Innovation Lab</h2>
+						<h3 class="text-3xl md:text-5xl font-black text-gray-900 leading-[1.1]">
 							We Bring Your <br /> 
 							<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Ideas To Life</span> 
 							<br /> Through Motion.

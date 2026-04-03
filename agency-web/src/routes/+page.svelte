@@ -7,6 +7,7 @@
 	import Testimonials from '$lib/components/Testimonials.svelte';
 	import Locations from '$lib/components/Locations.svelte';
 	import CEO from '$lib/components/CEO.svelte';
+	import Pricing from '$lib/components/Pricing.svelte';
 </script>
 
 <svelte:head>
@@ -21,6 +22,7 @@
 	<Partners />
 	<Services />
 	<Animations />
+	<Pricing />
 	<Testimonials />
 	<Locations />
 	<CEO />
@@ -34,9 +36,8 @@
 					<img 
 						src="/images/image-removebg-preview.png" 
 						alt="Coded Clouds" 
-						class="w-12 h-12 object-contain invert brightness-0 grayscale opacity-80"
+						class="w-16 h-16 object-contain invert brightness-0 grayscale opacity-80"
 					/>
-					<span class="text-2xl font-black tracking-tight">CODED CLOUDS</span>
 				</div>
 				<p class="text-gray-400 max-w-sm text-lg leading-relaxed mb-10">
 					Empowering global businesses with elite software architecture and intuitive design. From Pakistan to Saudi Arabia, we build the future.
@@ -75,8 +76,8 @@
 		<div class="pt-12 border-t border-gray-800 flex flex-col md:row items-center justify-between gap-8">
 			<p class="text-sm text-gray-500 italic">© 2026 Coded Clouds. All rights reserved. Multinationally Registered.</p>
 			<div class="flex gap-10 text-xs font-bold text-gray-500 uppercase tracking-widest">
-				<a href="#privacy" class="hover:text-white transition-colors">Privacy Policy</a>
-				<a href="#terms" class="hover:text-white transition-colors">Terms of Service</a>
+				<a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+				<a href="/terms-of-service" class="hover:text-white transition-colors">Terms of Service</a>
 			</div>
 		</div>
 	</div>
