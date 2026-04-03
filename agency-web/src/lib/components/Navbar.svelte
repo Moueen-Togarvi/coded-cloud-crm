@@ -4,9 +4,9 @@
 	const navLinks = [
 		{ name: 'HOME', href: '/' },
 		{ name: 'WHY US', href: '/why-us' },
-		{ name: 'SERVICE', href: '#services' },
-		{ name: 'PRICING', href: '#pricing' },
-		{ name: 'CONTACT', href: '/contact' }
+		{ name: 'SERVICE', href: '/services' },
+		{ name: 'CONTACT', href: '/contact' },
+		{ name: 'OUR TEAM', href: '/our-team' } // Added Our Team link and removed Pricing link
 	];
 </script>
 

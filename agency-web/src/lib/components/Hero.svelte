@@ -43,6 +43,93 @@
 	<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/30 rounded-full blur-[100px] -z-10 translate-x-1/2 -translate-y-1/4"></div>
 	<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-50/20 rounded-full blur-[80px] -z-10 -translate-x-1/4 translate-y-1/4"></div>
 
+	<!-- Add Starry Sky Animation -->
+	<style>
+		/* Starry Sky Animation */
+		@keyframes twinkle {
+			0%, 100% {
+				opacity: 0.8;
+			}
+			50% {
+				opacity: 0.2;
+			}
+		}
+
+		@keyframes shooting-star {
+			0% {
+				transform: translate(0, 0);
+				opacity: 1;
+			}
+			100% {
+				transform: translate(100px, -100px);
+				opacity: 0;
+			}
+		}
+
+		.starry-sky {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			z-index: -1;
+		}
+
+		.star {
+			position: absolute;
+			width: 2px;
+			height: 2px;
+			background: white;
+			border-radius: 50%;
+			animation: twinkle 2s infinite ease-in-out;
+		}
+
+		.shooting-star {
+			position: absolute;
+			width: 3px;
+			height: 3px;
+			background: white;
+			border-radius: 50%;
+			animation: shooting-star 2s infinite ease-in-out;
+		}
+	</style>
+
+	<script>
+		// Generate stars dynamically
+		import { onMount } from 'svelte';
+
+		let stars = [];
+		let shootingStars = [];
+
+		function generateStars(count) {
+			return Array.from({ length: count }, () => ({
+				x: Math.random() * 100 + '%',
+				y: Math.random() * 100 + '%',
+			}));
+		}
+
+		onMount(() => {
+			stars = generateStars(100);
+			shootingStars = generateStars(5);
+		});
+	</script>
+
+	<div class="starry-sky">
+		{#each stars as star}
+			<div
+				class="star"
+				style="top: {star.y}; left: {star.x}; animation-duration: {Math.random() * 2 + 1}s;"
+			></div>
+		{/each}
+		{#each shootingStars as star}
+			<div
+				class="shooting-star"
+				style="top: {star.y}; left: {star.x}; animation-duration: {Math.random() * 2 + 1}s;"
+			></div>
+		{/each}
+	</div>
+
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 			<!-- Text Content -->
@@ -55,7 +142,7 @@
 						</h2>
 						<h1 class="text-5xl md:text-6xl xl:text-7xl font-black text-black tracking-tighter leading-[1.1] mb-8">
 							WE ARCHITECT <br />
-							<span class="text-black">{currentWord}<span class="animate-pulse">|</span></span>
+							<span class="text-blue-600">{currentWord}<span class="animate-pulse">|</span></span>
 						</h1>
 					</div>
 

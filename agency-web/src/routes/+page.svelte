@@ -7,7 +7,7 @@
 	import Testimonials from '$lib/components/Testimonials.svelte';
 	import Locations from '$lib/components/Locations.svelte';
 	import CEO from '$lib/components/CEO.svelte';
-	import Pricing from '$lib/components/Pricing.svelte';
+	import Stats from '$lib/components/Stats.svelte';
 </script>
 
 <svelte:head>
@@ -22,9 +22,9 @@
 	<Partners />
 	<Services />
 	<Animations />
-	<Pricing />
-	<Testimonials />
+	<Stats /> <!-- Added new Stats section -->
 	<Locations />
+	<Testimonials />
 	<CEO />
 </main>
 
