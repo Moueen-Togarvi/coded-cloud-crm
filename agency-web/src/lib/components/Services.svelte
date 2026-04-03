@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { reveal } from '$lib/actions/reveal';
+
 	const services = [
 		{
 			id: 'graphic',
@@ -35,7 +37,7 @@
 	];
 </script>
 
-<section id="services" class="py-20 bg-white overflow-hidden">
+<section id="services" class="py-20 bg-white overflow-hidden" use:reveal>
 	<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
 		<div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
 			

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { reveal } from '$lib/actions/reveal';
 	import Swiper from 'swiper';
 	import { Pagination, Autoplay } from 'swiper/modules';
 	import 'swiper/css';
@@ -42,7 +43,7 @@
 	});
 </script>
 
-<section id="testimonials" class="py-16 bg-slate-50 overflow-hidden">
+<section id="testimonials" class="py-16 bg-slate-50 overflow-hidden" use:reveal>
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="text-center mb-12">
 			<h2 class="text-blue-600 font-bold uppercase tracking-widest text-[10px] mb-3">CLIENT SUCCESS</h2>

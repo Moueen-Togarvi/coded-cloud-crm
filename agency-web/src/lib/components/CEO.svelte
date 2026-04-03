@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { reveal } from '$lib/actions/reveal';
 	const ceoName = 'Hashim Saqib';
 	const ceoTitle = 'Founder & Chief Executive Officer';
 	const quote = 'At Coded Clouds, we don\'t just build software—we engineer digital futures. Our commitment is to bridge the gap between complex technology and intuitive user experiences, empowering businesses from Pakistan to the UAE and beyond.';
 </script>
 
-<section id="ceo" class="py-16 bg-white overflow-hidden">
+<section id="ceo" class="py-16 bg-white overflow-hidden" use:reveal>
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="glass p-8 lg:p-14 rounded-[2.5rem] border border-blue-100 flex flex-col lg:flex-row items-center gap-12 shadow-2xl shadow-blue-50">
 			<!-- CEO Icon/Placeholder (Premium 3D feel) -->

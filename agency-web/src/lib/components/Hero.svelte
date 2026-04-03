@@ -32,9 +32,128 @@
 		setTimeout(type, typeSpeed);
 	}
 
+	let canvas;
+	let ctx;
+	let animationFrameId;
+
+	// Particle System for Canvas
+	const particles = [];
+	const numParticles = 80;
+	let mouse = { x: null, y: null, radius: 150 };
+
+	class Particle {
+		constructor(width, height) {
+			this.x = Math.random() * width;
+			this.y = Math.random() * height;
+			this.vx = (Math.random() - 0.5) * 0.5;
+			this.vy = (Math.random() - 0.5) * 0.5;
+			this.size = Math.random() * 2 + 0.5;
+		}
+		
+		update(width, height) {
+			this.x += this.vx;
+			this.y += this.vy;
+
+			if (this.x < 0 || this.x > width) this.vx = -this.vx;
+			if (this.y < 0 || this.y > height) this.vy = -this.vy;
+		}
+
+		draw(ctx) {
+			ctx.beginPath();
+			ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+			ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+			ctx.fill();
+		}
+	}
+
+	function initParticles(width, height) {
+		particles.length = 0;
+		for (let i = 0; i < numParticles; i++) {
+			particles.push(new Particle(width, height));
+		}
+	}
+
+	function animateParticles() {
+		if (!canvas) return;
+		const width = canvas.width;
+		const height = canvas.height;
+		
+		ctx.clearRect(0, 0, width, height);
+
+		for (let i = 0; i < particles.length; i++) {
+			particles[i].update(width, height);
+			particles[i].draw(ctx);
+
+			for (let j = i; j < particles.length; j++) {
+				const dx = particles[i].x - particles[j].x;
+				const dy = particles[i].y - particles[j].y;
+				const distance = Math.sqrt(dx * dx + dy * dy);
+
+				// Connect particles to each other
+				if (distance < 100) {
+					ctx.beginPath();
+					ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 - distance / 1000})`;
+					ctx.lineWidth = 0.5;
+					ctx.moveTo(particles[i].x, particles[i].y);
+					ctx.lineTo(particles[j].x, particles[j].y);
+					ctx.stroke();
+				}
+			}
+
+			// Connect to mouse
+			if (mouse.x != null && mouse.y != null) {
+				const dx = particles[i].x - mouse.x;
+				const dy = particles[i].y - mouse.y;
+				const distance = Math.sqrt(dx * dx + dy * dy);
+				if (distance < mouse.radius) {
+					ctx.beginPath();
+					ctx.strokeStyle = `rgba(16, 185, 129, ${0.4 - distance / (mouse.radius * 2.5)})`; // tech green/blue color
+					ctx.lineWidth = 1;
+					ctx.moveTo(particles[i].x, particles[i].y);
+					ctx.lineTo(mouse.x, mouse.y);
+					ctx.stroke();
+				}
+			}
+		}
+		animationFrameId = requestAnimationFrame(animateParticles);
+	}
+
+	function handleMouseMove(e) {
+		if (canvas) {
+			const rect = canvas.getBoundingClientRect();
+			mouse.x = e.clientX - rect.left;
+			mouse.y = e.clientY - rect.top;
+		}
+	}
+	
+	function handleMouseLeave() {
+		mouse.x = null;
+		mouse.y = null;
+	}
+
+	function handleResize() {
+		if (canvas) {
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+			initParticles(canvas.width, canvas.height);
+		}
+	}
+
 	onMount(() => {
+		if (canvas) {
+			ctx = canvas.getContext('2d');
+			handleResize();
+			window.addEventListener('resize', handleResize);
+			animateParticles();
+		}
+		
 		visible = true;
 		type();
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+			cancelAnimationFrame(animationFrameId);
+		};
 	});
 </script>
 
@@ -43,98 +162,25 @@
 	<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/30 rounded-full blur-[100px] -z-10 translate-x-1/2 -translate-y-1/4"></div>
 	<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-50/20 rounded-full blur-[80px] -z-10 -translate-x-1/4 translate-y-1/4"></div>
 
-	<!-- Add Starry Sky Animation -->
-	<style>
-		/* Starry Sky Animation */
-		@keyframes twinkle {
-			0%, 100% {
-				opacity: 0.8;
-			}
-			50% {
-				opacity: 0.2;
-			}
-		}
-
-		@keyframes shooting-star {
-			0% {
-				transform: translate(0, 0);
-				opacity: 1;
-			}
-			100% {
-				transform: translate(100px, -100px);
-				opacity: 0;
-			}
-		}
-
-		.starry-sky {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			overflow: hidden;
-			z-index: -1;
-		}
-
-		.star {
-			position: absolute;
-			width: 2px;
-			height: 2px;
-			background: white;
-			border-radius: 50%;
-			animation: twinkle 2s infinite ease-in-out;
-		}
-
-		.shooting-star {
-			position: absolute;
-			width: 3px;
-			height: 3px;
-			background: white;
-			border-radius: 50%;
-			animation: shooting-star 2s infinite ease-in-out;
-		}
-	</style>
-
-	<script>
-		// Generate stars dynamically
-		import { onMount } from 'svelte';
-
-		let stars = [];
-		let shootingStars = [];
-
-		function generateStars(count) {
-			return Array.from({ length: count }, () => ({
-				x: Math.random() * 100 + '%',
-				y: Math.random() * 100 + '%',
-			}));
-		}
-
-		onMount(() => {
-			stars = generateStars(100);
-			shootingStars = generateStars(5);
-		});
-	</script>
-
-	<div class="starry-sky">
-		{#each stars as star}
-			<div
-				class="star"
-				style="top: {star.y}; left: {star.x}; animation-duration: {Math.random() * 2 + 1}s;"
-			></div>
-		{/each}
-		{#each shootingStars as star}
-			<div
-				class="shooting-star"
-				style="top: {star.y}; left: {star.x}; animation-duration: {Math.random() * 2 + 1}s;"
-			></div>
-		{/each}
-	</div>
+	<canvas 
+		bind:this={canvas} 
+		class="absolute top-0 left-0 w-full h-full -z-10"
+		onmousemove={handleMouseMove}
+		onmouseleave={handleMouseLeave}
+	></canvas>
 
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 			<!-- Text Content -->
 			<div class="text-left">
 				{#if visible}
+					<!-- Floating Social Proof Badge -->
+					<div in:fade={{ duration: 1000, delay: 200 }} class="mb-6 inline-block animate-bobbing">
+						<div class="px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center gap-2 shadow-xl">
+							<span class="text-sm">⭐</span>
+							<span class="text-xs font-semibold text-gray-300 uppercase tracking-widest">Trusted by 50+ Global Enterprises</span>
+						</div>
+					</div>
 					<div in:fly={{ x: -20, duration: 800 }}>
 						<h2 class="text-blue-800 font-bold uppercase tracking-[0.3em] text-[10px] mb-4 flex items-center gap-3">
 							<span class="w-10 h-0.5 bg-blue-800"></span>
@@ -184,8 +230,39 @@
 <style>
 	@reference "../../routes/layout.css";
 
+	@keyframes bobbing {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-8px); }
+	}
+
+	.animate-bobbing {
+		animation: bobbing 4s ease-in-out infinite;
+	}
+
 	.btn-primary {
-		@apply bg-blue-600 text-white rounded-2xl font-bold shadow-xl hover:bg-blue-700 hover:-translate-y-1 transition-all flex items-center justify-center;
+		@apply relative overflow-hidden bg-blue-600 text-white rounded-2xl font-bold shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center;
+	}
+
+	.btn-primary::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 50%;
+		height: 100%;
+		background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+		transform: skewX(-25deg);
+		transition: none;
+	}
+
+	.btn-primary:hover::after {
+		animation: shimmer 0.75s ease-out forwards;
+	}
+
+	@keyframes shimmer {
+		100% {
+			left: 200%;
+		}
 	}
 
 	.btn-outline {
