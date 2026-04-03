@@ -1,0 +1,133 @@
+Retrieving project…
+Deploying moueen-togarvis-projects/agency-web
+Uploading [--------------------] (0.0B/14.1KB)
+Uploading [===============-----] (11.0KB/14.1KB)
+Uploading [====================] (14.1KB/14.1KB)
+Inspect: https://vercel.com/moueen-togarvis-projects/agency-web/35EG83tuacdgLBQgppcqnQAsz4uF [3s]
+Production: https://agency-7xrnfgwb3-moueen-togarvis-projects.vercel.app [3s]
+https://agency-7xrnfgwb3-moueen-togarvis-projects.vercel.appBuilding...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 2 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Downloading 172 deployment files...
+Building: Restored build cache from previous deployment (9Zq57nuu554d3pnSSmECJMH3pq6t)
+Building: Warning: "vercel" found in project dependencies and will be ignored.
+Building: Running "vercel build"
+Building: Vercel CLI 50.38.2
+Building: Installing dependencies...
+Building: > agency-web@0.0.1 prepare
+Building: > svelte-kit sync || echo ''
+Building: up to date in 2s
+Building: 46 packages are looking for funding
+Building: run `npm fund` for details
+Building: Running "npm run build"
+Building: > agency-web@0.0.1 build
+Building: > vite build
+Building: vite v7.3.1 building ssr environment for production...
+Building: transforming...
+Building: 1:27:07 PM [vite-plugin-svelte] src/routes/our-team/+page.svelte:7:5 `visible` is updated, but is not declared with `$state(...)`. Changing its value will not correctly trigger updates
+Building: https://svelte.dev/e/non_reactive_update
+Building: 5:   import { onMount } from 'svelte';
+Building: 6:
+Building: 7:   let visible = false;
+Building: ^
+Building: 8:
+Building: 9:   const team = [
+Building: ✓ 228 modules transformed.
+Building: rendering chunks...
+Building: vite v7.3.1 building client environment for production...
+Building: transforming...
+Building: 1:27:10 PM [vite-plugin-svelte] src/routes/our-team/+page.svelte:7:5 `visible` is updated, but is not declared with `$state(...)`. Changing its value will not correctly trigger updates
+Building: https://svelte.dev/e/non_reactive_update
+Building: 5:   import { onMount } from 'svelte';
+Building: 6:
+Building: 7:   let visible = false;
+Building: ^
+Building: 8:
+Building: 9:   const team = [
+Building: ✓ 237 modules transformed.
+Building: rendering chunks...
+Building: computing gzip size...
+Building: .svelte-kit/output/client/_app/version.json                              0.03 kB │ gzip:  0.05 kB
+Building: .svelte-kit/output/client/.vite/manifest.json                            8.18 kB │ gzip:  1.12 kB
+Building: .svelte-kit/output/client/_app/immutable/assets/Services.tn0RQdqM.css    0.00 kB │ gzip:  0.02 kB
+Building: .svelte-kit/output/client/_app/immutable/assets/CEO.jnAVttkv.css         0.07 kB │ gzip:  0.08 kB
+Building: .svelte-kit/output/client/_app/immutable/assets/3.DLruXrC_.css           2.53 kB │ gzip:  0.73 kB
+Building: .svelte-kit/output/client/_app/immutable/assets/Navbar.CPZ64GII.css      2.90 kB │ gzip:  0.86 kB
+Building: .svelte-kit/output/client/_app/immutable/assets/2.CKUnMiP1.css          11.27 kB │ gzip:  2.70 kB
+Building: .svelte-kit/output/client/_app/immutable/assets/0.B4-Zn8U_.css          59.71 kB │ gzip: 10.05 kB
+Building: .svelte-kit/output/client/_app/immutable/entry/start.Du8QO90C.js         0.08 kB │ gzip:  0.09 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/Qgw0lJRy.js              0.32 kB │ gzip:  0.25 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/s6UjsDA4.js              0.40 kB │ gzip:  0.29 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/D4x3kElU.js              0.63 kB │ gzip:  0.39 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/BBXG59zk.js              0.65 kB │ gzip:  0.39 kB
+Building: .svelte-kit/output/client/_app/immutable/nodes/1.dVIs1kca.js             1.01 kB │ gzip:  0.58 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/DejJgfeo.js              1.05 kB │ gzip:  0.64 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/CoVR66oo.js              1.47 kB │ gzip:  0.79 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/BKomq8JL.js              1.48 kB │ gzip:  0.82 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/BxyanyKG.js              1.49 kB │ gzip:  0.66 kB
+Building: .svelte-kit/output/client/_app/immutable/nodes/5.DB09OhWq.js             2.20 kB │ gzip:  1.01 kB
+Building: .svelte-kit/output/client/_app/immutable/nodes/7.CYVcnXwZ.js             2.41 kB │ gzip:  1.12 kB
+Building: .svelte-kit/output/client/_app/immutable/nodes/0.BkgvBbKC.js             2.92 kB │ gzip:  1.27 kB
+Building: .svelte-kit/output/client/_app/immutable/nodes/8.CxP2Sa4_.js             3.03 kB │ gzip:  1.61 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/DrZKk_ZV.js              3.14 kB │ gzip:  1.62 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/CL51IFkN.js              3.41 kB │ gzip:  1.45 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/B2gme559.js              3.54 kB │ gzip:  1.66 kB
+Building: .svelte-kit/output/client/_app/immutable/nodes/6.C3wKo6os.js             4.51 kB │ gzip:  1.85 kB
+Building: .svelte-kit/output/client/_app/immutable/nodes/3.q5sgZgpW.js             6.11 kB │ gzip:  2.16 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/C2GdhQue.js              6.43 kB │ gzip:  2.95 kB
+Building: .svelte-kit/output/client/_app/immutable/nodes/4.DZKV72mH.js             6.58 kB │ gzip:  2.78 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/DwxCQLhP.js              7.26 kB │ gzip:  3.44 kB
+Building: .svelte-kit/output/client/_app/immutable/entry/app.BDHIbKef.js           7.34 kB │ gzip:  3.23 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/gp8NUn_a.js             23.63 kB │ gzip:  9.30 kB
+Building: .svelte-kit/output/client/_app/immutable/chunks/tzqxd71W.js             25.97 kB │ gzip: 10.19 kB
+Building: .svelte-kit/output/client/_app/immutable/nodes/2.DDNx5mTO.js           118.38 kB │ gzip: 36.62 kB
+Building: ✓ built in 1.77s
+Building: .svelte-kit/output/server/.vite/manifest.json                              5.77 kB
+Building: .svelte-kit/output/server/_app/immutable/assets/Services.tn0RQdqM.css      0.00 kB
+Building: .svelte-kit/output/server/_app/immutable/assets/CEO.jnAVttkv.css           0.07 kB
+Building: .svelte-kit/output/server/_app/immutable/assets/_page.DLruXrC_.css         2.53 kB
+Building: .svelte-kit/output/server/_app/immutable/assets/Navbar.CPZ64GII.css        2.90 kB
+Building: .svelte-kit/output/server/_app/immutable/assets/_page.CKUnMiP1.css        11.27 kB
+Building: .svelte-kit/output/server/_app/immutable/assets/_layout.B4-Zn8U_.css      59.71 kB
+Building: .svelte-kit/output/server/chunks/false.js                                  0.03 kB
+Building: .svelte-kit/output/server/chunks/equality.js                               0.18 kB
+Building: .svelte-kit/output/server/chunks/environment.js                            0.26 kB
+Building: .svelte-kit/output/server/internal.js                                      0.34 kB
+Building: .svelte-kit/output/server/entries/pages/why-us/_page.svelte.js             0.43 kB
+Building: .svelte-kit/output/server/entries/pages/contact/_page.svelte.js            0.44 kB
+Building: .svelte-kit/output/server/chunks/index.js                                  0.52 kB
+Building: .svelte-kit/output/server/chunks/utils.js                                  0.62 kB
+Building: .svelte-kit/output/server/entries/fallbacks/error.svelte.js                0.74 kB
+Building: .svelte-kit/output/server/chunks/Navbar.js                                 1.95 kB
+Building: .svelte-kit/output/server/entries/pages/privacy/_page.svelte.js            2.09 kB
+Building: .svelte-kit/output/server/entries/pages/terms-of-service/_page.svelte.js   2.29 kB
+Building: .svelte-kit/output/server/chunks/exports.js                                2.56 kB
+Building: .svelte-kit/output/server/entries/pages/_layout.svelte.js                  2.62 kB
+Building: .svelte-kit/output/server/chunks/internal.js                               2.84 kB
+Building: .svelte-kit/output/server/chunks/CEO.js                                    3.10 kB
+Building: .svelte-kit/output/server/chunks/Services.js                               3.13 kB
+Building: .svelte-kit/output/server/entries/pages/services/_page.svelte.js           4.35 kB
+Building: .svelte-kit/output/server/entries/pages/our-team/_page.svelte.js           5.28 kB
+Building: .svelte-kit/output/server/remote-entry.js                                  8.53 kB
+Building: .svelte-kit/output/server/chunks/shared.js                                11.83 kB
+Building: .svelte-kit/output/server/chunks/index2.js                                12.85 kB
+Building: .svelte-kit/output/server/entries/pages/_page.svelte.js                   15.29 kB
+Building: .svelte-kit/output/server/chunks/root.js                                  24.51 kB
+Building: .svelte-kit/output/server/index.js                                        55.04 kB
+Building: ✓ built in 4.67s
+Building: Run npm run preview to preview your production build locally.
+Building: > Using @sveltejs/adapter-vercel
+Building: ✔ done
+Building: Build Completed in /vercel/output [9s]
+Building: Deploying outputs...
+Building: Deployment completed
+Building: Creating build cache...
+[2K[1A[2K[GProduction: https://agency-7xrnfgwb3-moueen-togarvis-projects.vercel.app [31s]
+Completing...
+Aliased: https://agency-web-mu.vercel.app [31s]
+
+Common next commands:
+- `vercel inspect agency-7xrnfgwb3-moueen-togarvis-projects.vercel.app --logs`
+- `vercel redeploy agency-7xrnfgwb3-moueen-togarvis-projects.vercel.app`
